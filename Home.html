@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="Home.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css">
+    <script src="Home.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png">
+    <title>Meta Shoes</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header id="site-header" class="animate__animated">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-container">
+                <a href="Home.html"><img class="logo-img" src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="cart-container">
+                    <a href="#" class="cart-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="info-container">
+            <ul class="info-text">
+                <div class="slideshow-container">
+                    <div class="slideshow">
+                      <div class="slide"id="text-1">
+                        <h2>PREMIUM QUALITY</h2>
+                        <p class="top-text">Made Carefully in Australia</p>
+                      </div>
+                      <div class="slide"id="text-2">
+                        <h2>HANDMADE SNEAKERS</h2>
+                        <p class="top-text">Handcrafted With Care and Made By Trained Professionals</p>
+                      </div>
+                      <div class="slide"id="text-3">
+                        <h2>CLIMATE FRIENDLY</h2>
+                        <p class="top-text">Less CO2 Emissions Due To Being Crafted In One Country</p>
+                      </div>
+                    </div>
+                </div>
+                <li class="top-text">A NEW ERA OF SACK MAX</li>
+                <li id="middle-title">EVERYTHING TO THE MAX</li>
+                <li class="top-text" id="bottom-text">These shoes have record-taking average lifetimes with premium quality materials produced in Australia</li>
+                <div id="shop-container">
+                    <a href="#"><li class="top-text" id="shop-button">Shop</li></a>
+                </div>
+            </ul>
+        </div>
+        <section class="shoe-selection"></section>
+        <footer>
+            <div class="footer-container">
+                <div class="social-media-container">
+                    <a href="#" class="icon-container">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="icon-container">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="icon-container">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="footer-info-container">
+                    <p>© 2023 Shoe Website. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+<script>
+(function(){
+
+var doc = document.documentElement;
+var win = window;
+
+var prevScrollY = win.scrollY || doc.scrollTop;
+var curScrollY;
+var directionY = 0;
+var prevDirectionY = 0;
+
+var header = document.getElementById('site-header');
+
+var checkScrollY = function() {
+curScrollY = win.scrollY || doc.scrollTop;
+if (curScrollY > prevScrollY) {
+    directionY = 2;
+}
+else if (curScrollY < prevScrollY) {
+    directionY = 1;
+}
+
+if (directionY !== prevDirectionY) {
+    toggleHeader(directionY, curScrollY);
+}
+
+prevScrollY = curScrollY;
+};
+
+var toggleHeader = function(direction, curScroll) {
+if (direction === 2 && curScroll > 52) {
+    header.classList.add('animate__fadeOutUp');
+    prevDirectionY = direction;
+}
+else if (direction === 1) {
+    header.classList.remove('animate__fadeOutUp');
+    header.classList.add('animate__fadeInDown');
+    prevDirectionY = direction;
+}
+};
+
+win.addEventListener('scroll', checkScrollY);
+
+})();
+
+var slideshowContainer = document.querySelector('.slideshow-container');
+var slideshow = slideshowContainer.querySelector('.slideshow');
+var slides = document.querySelectorAll('.slide');
+var currentSlide = 0;
+
+function showNextSlide() {
+  currentSlide++;
+  currentSlide--;
+  console.log(currentSlide)
+
+  var translateX = currentSlide * - 100; // Ändra tecknet på värdet
+  slideshow.style.transform = 'translateX(' + translateX + '%)'; // Lägg till tecken
+}
+setInterval(showNextSlide, 5000);
+</script>
