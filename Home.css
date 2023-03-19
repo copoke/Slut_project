@@ -7,9 +7,46 @@
     font-size: 20px;
 }
 
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+    transform: translateX(0);
+}
+
 body {
     background-color: #ffffff;
     overflow-x: hidden;
+    height:100vh;
+    margin: 0rem;
+    
 }
 
 header {
@@ -34,6 +71,8 @@ header {
 
 .logo-img {
     width: 50px;
+    position: absolute;
+    top:10px
 }
 
 nav {
@@ -52,13 +91,14 @@ nav {
     text-align: center;
     margin: 60px 60px;
     border-bottom: #22222200 solid;
-    color:#000000;
-    transition: color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border-end-start-radius 0.8s ease-in-out;
+    padding:5px;
+    color:#2b2b2b;
+    transition: color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border-end-start-radius 0.8s ease-in-out, border-bottom 0.5s ease-in-out;
 }
 
 .nav-links a:hover {
-    box-shadow: inset 100px 0 0 0 #000000;
-    color: #ffffff;
+    border-bottom: #2e2e2e solid;
+    color: #000000;
 }
 
 .cart-icon {
@@ -75,12 +115,37 @@ nav {
     display: block;
 }
 
+#main-container {
+    display: flex;
+    position: relative;
+    margin-top: 50px;
+    width:98vw;
+    height:100vh;
+    justify-content: space-around;
+    margin-left: 8px;
+    gap: 20px;
+}
+
 .shoe-selection {
-    height: 100vh;
-    width: 100vw;
+    width: 30vw;
     background-image: url('https://images.pexels.com/photos/1070360/pexels-photo-1070360.jpeg?cs=srgb&dl=pexels-jordan-hyde-1070360.jpg&fm=jpg');
-    background-size: cover;
+    background-size: 150%;
     background-position: center;
+    box-sizing: border-box;
+}
+
+  
+
+#background-1 {
+    background-image: url('https://i.ibb.co/4ZH2sB6/merlin-186039729-cdb846bf-dc3f-49cf-8552-e3992140338b-super-Jumbo.png');
+}
+
+#background-2 {
+    background-image: url('https://i.ibb.co/wzgK2Yf/3525-12-D-TIF-RGB-801264-01-SP23-Project212-TM-Shot-12-038-main-1.png');
+}
+
+#background-3 {
+    background-image: url('https://i.ibb.co/hRqhqg7/photo-1542291026-7eec264c27ff.png');
 }
 
 .info-container {
@@ -95,12 +160,14 @@ nav {
     color: rgb(70, 70, 70);
     font-weight: bolder;
     font-size: 15px;
+    list-style-type: none;
 }
 
 #middle-title {
     color: rgb(22, 22, 22);
     font-weight: bold;
     font-size: 80px;
+    list-style-type: none;
 }
 
 #bottom-text {
@@ -150,7 +217,7 @@ li#shop-button:hover {
     transition: all ease 0.5s;
 }
 
-.slide {
+.slide2 {
     position: relative;
     width: 100%;
     min-height: 100px;
@@ -174,6 +241,7 @@ li#shop-button:hover {
     font-size: 24px;
     font-weight: bold;
 }
+
 
 #text-2 {
     margin-left: -5px;
@@ -216,4 +284,13 @@ footer {
 
 .footer-info-container {
     font-size: 14px;
+}
+
+#margin {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.card-img-overlay {
+    top:70%;
 }
