@@ -80,12 +80,12 @@
         <div id="wowslider-container0">
             <div class="ws_images">
                 <ul>
-                    <li><img src="data0/images/sneakerwallpaper2007051805169scaled.jpg" alt="" title="" id="wows0_0" />
+                    <li><img src="data0\images\sneakerwallpaper2007051805169scaled.jpeg" alt="" title="" id="wows0_0" />
                     </li>
-                    <li><img src="data0/images/pexelsjordanhyde1070360.jpg" alt="" title="" id="wows0_1" /></li>
-                    <li><img src="data0/images/photo1559479083f3b234ad0d53.jpg" alt="image carousel" title=""
+                    <li><img src="data0\images\pexelsjordanhyde1070360.jpeg" alt="" title="" id="wows0_1" /></li>
+                    <li><img src="data0\images\photo1559479083f3b234ad0d53.jpeg" alt="image carousel" title=""
                             id="wows0_2" /></a></li>
-                    <li><img src="data0/images/landscape1490049778kaws1.jpg" alt="" title="" id="wows0_3" /></li>
+                    <li><img src="data0\images\landscape1490049778kaws1.jpeg" alt="" title="" id="wows0_3" /></li>
                 </ul>
             </div>
             <div class="ws_bullets">
@@ -111,8 +111,8 @@
             <section class="shoe-selection wow fadeInDown" id="background-2"></section>
             <section class="shoe-selection wow fadeInDown" id="background-3"></section>
         </div>
-        <div class="container text-center" id="margin">
-            <div class="row mx-auto my-auto justify-content-center">
+        <div class="container text-center wow fadeInDown" id="margin">
+            <div class="row mx-100 my-auto justify-content-center" id="width">
                 <div id="recipeCarousel" class="carousel slide shadow" data-bs-ride="carousel" data-bs-interval="5000">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
@@ -193,6 +193,7 @@
                 </div>
             </div>
         </div>
+        <div id="map"></div>
         <footer>
             <div class="footer-container">
                 <div class="social-media-container">
@@ -209,17 +210,48 @@
                 <div class="footer-info-container">
                     <p id="copywrite">© 2023 Shoe Website. All Rights Reserved.</p>
                 </div>
-                
             </div>
         </footer>
     </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
 </body>
-
 </html>
 <script>
+function initMap() {
+  const Nike = { lat: 59.44542228908818, lng: 18.071977 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: Nike,
+  });
+  const marker = new google.maps.Marker({
+    position: Nike,
+    map: map,
+  });
+}
+
+window.initMap = initMap;
+
+
     window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
-    $(".shoe-selection").css('background-position-y', -scroll,'px')
+        $(".shoe-selection").css('background-position-y', -scroll/1.5,'px')
+        $("#middle-title").css('margin-right', scroll, 'px')
+        $("#middle-title").css('opacity', 100/scroll**1.5)
+        $("#below-text").css('margin-left', scroll, 'px')
+        $("#below-text").css('opacity', 100/scroll**1.4)
+        $("#bottom-text").css('margin-left', scroll, 'px')
+        $("#bottom-text").css('opacity', 100/scroll**1.4)
+        if(scroll == 0){
+            $("#bottom-text").css('opacity', 1)
+            $("#middle-title").css('opacity', 1)
+            $("#below-text").css('opacity', 1)
+        }
+        if (scroll < 300){
+            $("#shop-container").css('margin-top', -scroll/1.3 + 50, 'px')
+        }
     });
 
     let items = document.querySelectorAll('.carousel .carousel-item')
@@ -286,16 +318,14 @@
     var slideshow = slideshowContainer.querySelector('.slideshow');
     var slides = document.querySelectorAll('.slide');
     var currentSlide = 0;
-
+''
     function showNextSlide() {
         currentSlide++;
         if (currentSlide > 2) {
-            currentSlide = 1
+            currentSlide = 0
         }
         var translateX = currentSlide * - 100;
         slideshow.style.transform = 'translateX(' + translateX + '%)';
     }
     setInterval(showNextSlide, 5000);
-
-
 </script>

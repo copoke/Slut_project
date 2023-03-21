@@ -116,6 +116,10 @@ nav {
     display: block;
 }
 
+#width {
+    width:100% !important;
+}
+
 #main-container {
     display: flex;
     position: relative;
@@ -173,6 +177,9 @@ nav {
     font-weight: bold;
     font-size: 80px;
     list-style-type: none;
+    word-wrap: none;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 #bottom-text {
@@ -211,7 +218,6 @@ li#shop-button:hover {
 .slideshow-container {
     position: relative;
     width: 100%;
-    background-color: #e4e4e4;
     transition: all ease 0.5s;
     white-space: nowrap;
 }
@@ -228,8 +234,6 @@ li#shop-button:hover {
     min-height: 58px;
     flex-shrink: 0;
     scroll-snap-align: start;
-    margin-right: 10px;
-    padding: 20px;
     transition: all ease 0.5s;
 }
 
@@ -262,6 +266,17 @@ footer {
     bottom: 0px;
     width: 100%;
 }
+
+#map {
+    position: absolute;
+    display: none;
+    top:50%;
+    left:25%;
+    height: 400px; /* The height is 400 pixels */
+    width: 50%; /* The width is the width of the web page */
+  }
+  
+
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -282,6 +297,7 @@ footer {
     border-radius: 50%;
     margin-right: 10px;
     color: #333;
+    text-decoration: none;
 }
 
 .footer-info-container {
