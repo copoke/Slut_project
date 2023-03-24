@@ -296,6 +296,17 @@ footer {
     transform: translate(-50%, -50%);
     border-radius: 5px;
     z-index: 1000;
+    opacity: 0;
+    animation: opacity forwards 0.5s;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 #map {
@@ -305,7 +316,9 @@ footer {
     width: 60%; /* The width is the width of the web page */
     left:20%;
     top:20%;
+    z-index: 2;
     border: 5px solid black;
+    box-shadow: 5px 5px 20px black;
   }
   
 #map-button {
@@ -363,4 +376,18 @@ footer {
 
 .pointer {
     cursor:pointer;
+}
+
+.blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+}
+
+#title {
+    font-size: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

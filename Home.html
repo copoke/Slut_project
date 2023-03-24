@@ -107,6 +107,7 @@
             <section class="shoe-selection wow fadeInDown" id="background-3"></section>
         </div>
         <div class="container text-center wow fadeInDown" id="margin">
+            <h3 id="title">OUR PRODUCTS</h3>
             <div class="row mx-100 my-auto justify-content-center" id="width">
                 <div id="recipeCarousel" class="carousel slide shadow" data-bs-ride="carousel" data-bs-interval="5000">
                     <div class="carousel-inner" role="listbox">
@@ -190,7 +191,7 @@
         </div>
         <div class="pop-up-container">
             <div id="map"></div>
-            <div id="map-button" onclick="hidemap(true)"></div>
+            <div class="blocker" onclick="hidemap(true)"></div>
         </div>
         <footer>
             <div class="footer-container">
@@ -221,6 +222,7 @@
 </body>
 </html>
 <script>
+
 function hidemap(boolean) {
     const container = $(".pop-up-container")
     if (boolean == true){
@@ -230,6 +232,7 @@ function hidemap(boolean) {
         container.css('display', 'block')
     }
 }
+
 
 function initMap() {
   const Nike = { lat: 59.44542228908818, lng: 18.071977 };
@@ -248,7 +251,8 @@ window.initMap = initMap;
 
     window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
-        $(".shoe-selection").css('background-position-y', -scroll/1.5,'px')
+        $(".shoe-selection").css('background-position-y', -scroll/1,'px')
+        console.log(-scroll/10)
         $("#middle-title").css('margin-right', scroll, 'px')
         $("#middle-title").css('opacity', 100/scroll**1.5)
         $("#below-text").css('margin-left', scroll, 'px')
