@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/38c1368b3d.js" crossorigin="anonymous"></script>
     <title>Meta Shoes</title>
     <link rel="stylesheet" type="text/css" href="engine0/style.css" />
 </head>
@@ -35,18 +36,12 @@
                         src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
                 <nav>
                     <ul class="nav-links">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="home.html">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Warranty</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
-                <div class="cart-container">
-                    <a href="#" class="cart-icon">
-                        <i class="fa fa-shopping-cart"></i>
-                    </a>
-                </div>
-            </div>
         </header>
         <div class="info-container">
             <ul class="info-text">
@@ -193,7 +188,10 @@
                 </div>
             </div>
         </div>
-        <div id="map"></div>
+        <div class="pop-up-container">
+            <div id="map"></div>
+            <div id="map-button" onclick="hidemap(true)"></div>
+        </div>
         <footer>
             <div class="footer-container">
                 <div class="social-media-container">
@@ -206,6 +204,9 @@
                     <a href="#" class="icon-container">
                         <i class="fa fa-instagram"></i>
                     </a>
+                    <div class="icon-container pointer hover-event"onclick="hidemap(false)">
+                        <i class="fa-solid fa-map-location-dot fa-sm"></i>
+                    </div>
                 </div>
                 <div class="footer-info-container">
                     <p id="copywrite">© 2023 Shoe Website. All Rights Reserved.</p>
@@ -220,6 +221,16 @@
 </body>
 </html>
 <script>
+function hidemap(boolean) {
+    const container = $(".pop-up-container")
+    if (boolean == true){
+        container.css('display', 'none')
+    }
+    else {
+        container.css('display', 'block')
+    }
+}
+
 function initMap() {
   const Nike = { lat: 59.44542228908818, lng: 18.071977 };
   const map = new google.maps.Map(document.getElementById("map"), {

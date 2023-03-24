@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="contact.css">
+    <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png">
+    <title>Meta Shoes</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header id="site-header" class="animate__animated">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-container">
+                <a href="Home.html"><img class="logo-img"
+                        src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+        </header>
+        <div class="content">
+            <div class="container">
+                <div class="flex-container">
+                    <div class="column">
+                        <div class="input-box">
+                            <h3>Hello!</h3>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 id="title">Nike shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, commodi dolore libero doloremque beatae optio obcaecati cumque voluptatum repellat dicta debitis labore impedit est amet ab odio quae! Debitis, non?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+
+var doc = document.documentElement;
+var win = window;
+
+var prevScrollY = win.scrollY || doc.scrollTop;
+var curScrollY;
+var directionY = 0;
+var prevDirectionY = 0;
+
+var header = document.getElementById('site-header');
+
+var checkScrollY = function () {
+    curScrollY = win.scrollY || doc.scrollTop;
+    if (curScrollY > prevScrollY) {
+        directionY = 2;
+    }
+    else if (curScrollY < prevScrollY) {
+        directionY = 1;
+    }
+
+    if (directionY !== prevDirectionY) {
+        toggleHeader(directionY, curScrollY);
+    }
+
+    prevScrollY = curScrollY;
+};
+
+var toggleHeader = function (direction, curScroll) {
+    if (direction === 2 && curScroll > 52) {
+        header.classList.add('animate__fadeOutUp');
+        prevDirectionY = direction;
+    }
+    else if (direction === 1) {
+        header.classList.remove('animate__fadeOutUp');
+        header.classList.add('animate__fadeInDown');
+        prevDirectionY = direction;
+    }
+};
+
+win.addEventListener('scroll', checkScrollY);
+
+})();
+</script>
+</html>

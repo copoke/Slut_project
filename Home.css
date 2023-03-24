@@ -63,10 +63,21 @@ header {
 }
 .nav-container {
     display: flex;
-    justify-content: space-between;
     text-align: center;
     align-items: center;
     padding: 1rem;
+}
+
+#site-header > div.nav-container > nav {
+    margin-left: 0;
+}
+
+#site-header > div.nav-container > nav {
+    padding: 0;
+}
+
+#site-header > div.nav-container > div {
+    margin-top: -1.5%;
 }
 
 .logo-img {
@@ -100,6 +111,12 @@ nav {
 .nav-links a:hover {
     border-bottom: #2e2e2e solid;
     color: #000000;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-icon {
@@ -267,15 +284,46 @@ footer {
     width: 100%;
 }
 
-#map {
-    position: absolute;
+.pop-up-container {
     display: none;
-    top:50%;
-    left:25%;
-    height: 400px; /* The height is 400 pixels */
-    width: 50%; /* The width is the width of the web page */
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+#map {
+    position: fixed;
+    background-color: black;
+    height: 60%; /* The height is 400 pixels */
+    width: 60%; /* The width is the width of the web page */
+    left:20%;
+    top:20%;
+    border: 5px solid black;
   }
   
+#map-button {
+    position: absolute;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png);
+    top:0%;
+    right:0%;
+    background-size: cover;
+    padding: 10px;
+    opacity: 0.7;
+    height:30px;
+    width:30px;
+    cursor: pointer;
+}
+
+#map-button:hover {
+    opacity: 1;
+}
 
 .footer-container {
     display: flex;
@@ -311,4 +359,8 @@ footer {
 
 .card-img-overlay {
     top:70%;
+}
+
+.pointer {
+    cursor:pointer;
 }
