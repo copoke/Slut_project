@@ -244,21 +244,27 @@ function initMap() {
     position: Nike,
     map: map,
   });
+  const marker2 = new google.maps.Marker({
+    position: {lat: 59.3745728554508, lng:18.080358794657688},
+    map: map
+  })
 }
+
+fetch(URL).then(data=> {
+  return data.json()
+}).then(jsonData => {
+ console.log(jsonData.results)
+}).catch(error=> {
+  console.log(error);
+}) 
 
 window.initMap = initMap;
 
 
     window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
-        $(".shoe-selection").css('background-position-y', -scroll/1,'px')
-        console.log(-scroll/10)
-        $("#middle-title").css('margin-right', scroll, 'px')
-        $("#middle-title").css('opacity', 100/scroll**1.5)
-        $("#below-text").css('margin-left', scroll, 'px')
-        $("#below-text").css('opacity', 100/scroll**1.4)
-        $("#bottom-text").css('margin-left', scroll, 'px')
-        $("#bottom-text").css('opacity', 100/scroll**1.4)
+        $(".shoe-selection").css('background-position-y', Math.round(-scroll/3),'px')
+        console.log(Math.round(-scroll/1))
         if(scroll == 0){
             $("#bottom-text").css('opacity', 1)
             $("#middle-title").css('opacity', 1)

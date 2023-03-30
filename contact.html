@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="contact.css">
     <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png">
+    <script src="https://kit.fontawesome.com/38c1368b3d.js" crossorigin="anonymous"></script>
     <title>Meta Shoes</title>
 </head>
 <body>
@@ -28,6 +29,35 @@
                     </ul>
                 </nav>
         </header>
+        <div id="form-container">
+            <div id="container">
+            <h1>Contact Us</h1>
+                <form action="#" method="POST">
+                    <div>
+                    <div class="flex">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="name" name="name" required placeholder="Name">
+                    </div>
+                    </div>
+                    <br>
+                    <div>
+                    <div class="flex">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                    </div>
+                    </div>
+                    <br>
+                    <div>
+                    <div class="flex">
+                    <i class="fa-solid fa-message"></i>    
+                    <textarea id="message" name="message" required minlength="20" maxlength="200" placeholder="Message"></textarea>
+                    </div>
+                    </div>
+                    <br>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 <script>

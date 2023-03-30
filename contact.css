@@ -100,49 +100,115 @@ nav {
     color: rgba(49, 49, 49, 0.74);
 }
 
-.content {
-    padding:7rem 0;
-}
+label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-family:'Times New Roman', Times, serif;
+  }
 
-.container {
-    width:100%;
-    padding-right: 12px;
-    padding-left: 12px;
-    margin-right: auto;
-    margin-left: auto;
-}
+  #message {
+    resize: none;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    border: 1px solid #2e2e2e;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-.flex-container{
-    display: flex;
-    flex-wrap: wrap; 
-    margin-right: 12px;
-    margin-left: 12px;
-}
+  input[type="text"], input[type="email"], input[type="password"], textarea {
+    background-color: #fff;
+    color:#000;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    border-left:1px solid rgba(0, 0, 0, 0);
+    border-right:1px solid rgba(0, 0, 0, 0)
+  }
 
-.column {
+  input[type="submit"] {
+    text-align: right;
+    background: black;
+    color:white;
+    border:1px #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    padding: 6px 20px;
+    opacity: 0.8;
+    transition: opacity 0.15s ease-in-out;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    opacity: 1;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #form-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    width:60%
+  }
+
+  #form-container #container {
+    margin-top: 10%;
+    background: rgba(255,255,255,0.3);
+    padding-left: 1.5em;
+    padding-right: 3em;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    border-radius: 20px;
+    border-left: 1px solid rgba(176, 175, 175, 0.3);
+    border-top: 1px solid rgba(168, 168, 168, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
     position: relative;
-    width:100%;
-    padding-left: 12px;
-    padding-right: 12px;
-}
+    transition: all 0.2s ease-in-out;
+    
+  }
 
-.column h3 {
-    color:rgb(0, 0, 0);
-    background-color: none;
-}
-
-h3#title {
+  #form-container #container h1 {
+    margin-bottom: 40px;
     font-size: xx-large;
+  }
+
+.flex {
+    display: flex;
+    align-items: center;
+    width:100%;
 }
 
-.column p {
-    font-size: medium;
-    font-style: italic;
-    font-weight: bolder;
+.flex i {
+    padding: 1em;
 }
 
-.input-box {
-    padding:50px;
-    background:white;
-    box-shadow: -40px 30px 0px 0 rgba(49, 49, 49, 0.74);
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+input {
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+}
+
+textarea {
+    height:24px
 }
