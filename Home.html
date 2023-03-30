@@ -31,17 +31,22 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
+            <a href="Home.html"><img class="logo-img"
+                src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
             <div class="nav-container">
-                <a href="Home.html"><img class="logo-img"
-                        src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
                 <nav>
                     <ul class="nav-links">
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Warranty</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="home.html" class="link">Home</a></li>
+                        <li><a href="#" class="link">About</a></li>
+                        <li><a href="#" class="link">Warranty</a></li>
+                        <li><a href="contact.html" class="link">Contact</a></li>
                     </ul>
                 </nav>
+                <div id="loginContainer">
+                    <div class="log-in">Log in</div>
+                    <div id="login" class="link">Get Started</div>
+                </div>
+            </div>
         </header>
         <div class="info-container">
             <ul class="info-text">
@@ -263,7 +268,7 @@ window.initMap = initMap;
 
     window.addEventListener("scroll", (event) => {
     let scroll = this.scrollY;
-        $(".shoe-selection").css('background-position-y', Math.round(-scroll/3),'px')
+        $(".shoe-selection").css('background-position-y', Math.round(-scroll/1.5),'px')
         console.log(Math.round(-scroll/1))
         if(scroll == 0){
             $("#bottom-text").css('opacity', 1)
@@ -271,7 +276,7 @@ window.initMap = initMap;
             $("#below-text").css('opacity', 1)
         }
         if (scroll < 300){
-            $("#shop-container").css('margin-top', -scroll/1.3 + 50, 'px')
+            $("#shop-container").css('margin-top', -scroll/1.2 + 50, 'px')
         }
     });
 
@@ -290,7 +295,6 @@ window.initMap = initMap;
 
     })
     new WOW().init();
-
     (function () {
 
         var doc = document.documentElement;
@@ -302,6 +306,8 @@ window.initMap = initMap;
         var prevDirectionY = 0;
 
         var header = document.getElementById('site-header');
+        var links = document.getElementsByClassName('link');
+        console.log(links)
 
         var checkScrollY = function () {
             curScrollY = win.scrollY || doc.scrollTop;
@@ -323,11 +329,15 @@ window.initMap = initMap;
             if (direction === 2 && curScroll > 52) {
                 header.classList.add('animate__fadeOutUp');
                 prevDirectionY = direction;
+                setTimeout(() => {
+                    $('.link').css('pointer-events', 'none')
+                }, 500);
             }
             else if (direction === 1) {
                 header.classList.remove('animate__fadeOutUp');
                 header.classList.add('animate__fadeInDown');
                 prevDirectionY = direction;
+                $('.link').css('pointer-events', 'auto')
             }
         };
 

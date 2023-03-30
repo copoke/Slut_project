@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="https://kit.fontawesome.com/38c1368b3d.js" crossorigin="anonymous"></script>
     <title>Meta Shoes</title>
 </head>
+
 <body>
     <div class="wrapper">
         <header id="site-header" class="animate__animated">
@@ -31,27 +33,28 @@
         </header>
         <div id="form-container">
             <div id="container">
-            <h1>Contact Us</h1>
+                <h1>Contact Us</h1>
                 <form action="#" method="POST">
                     <div>
-                    <div class="flex">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" id="name" name="name" required placeholder="Name">
-                    </div>
-                    </div>
-                    <br>
-                    <div>
-                    <div class="flex">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="email" name="email" required placeholder="Email">
-                    </div>
+                        <div class="flex">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="name" name="name" required placeholder="Name">
+                        </div>
                     </div>
                     <br>
                     <div>
-                    <div class="flex">
-                    <i class="fa-solid fa-message"></i>    
-                    <textarea id="message" name="message" required minlength="20" maxlength="200" placeholder="Message"></textarea>
+                        <div class="flex">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email" required placeholder="Email">
+                        </div>
                     </div>
+                    <br>
+                    <div>
+                        <div class="flex">
+                            <i class="fa-solid fa-message"></i>
+                            <textarea id="message" name="message" required minlength="20" maxlength="200"
+                                placeholder="Message"></textarea>
+                        </div>
                     </div>
                     <br>
                     <input type="submit" value="Send">
@@ -63,46 +66,47 @@
 <script>
     (function () {
 
-var doc = document.documentElement;
-var win = window;
+        var doc = document.documentElement;
+        var win = window;
 
-var prevScrollY = win.scrollY || doc.scrollTop;
-var curScrollY;
-var directionY = 0;
-var prevDirectionY = 0;
+        var prevScrollY = win.scrollY || doc.scrollTop;
+        var curScrollY;
+        var directionY = 0;
+        var prevDirectionY = 0;
 
-var header = document.getElementById('site-header');
+        var header = document.getElementById('site-header');
 
-var checkScrollY = function () {
-    curScrollY = win.scrollY || doc.scrollTop;
-    if (curScrollY > prevScrollY) {
-        directionY = 2;
-    }
-    else if (curScrollY < prevScrollY) {
-        directionY = 1;
-    }
+        var checkScrollY = function () {
+            curScrollY = win.scrollY || doc.scrollTop;
+            if (curScrollY > prevScrollY) {
+                directionY = 2;
+            }
+            else if (curScrollY < prevScrollY) {
+                directionY = 1;
+            }
 
-    if (directionY !== prevDirectionY) {
-        toggleHeader(directionY, curScrollY);
-    }
+            if (directionY !== prevDirectionY) {
+                toggleHeader(directionY, curScrollY);
+            }
 
-    prevScrollY = curScrollY;
-};
+            prevScrollY = curScrollY;
+        };
 
-var toggleHeader = function (direction, curScroll) {
-    if (direction === 2 && curScroll > 52) {
-        header.classList.add('animate__fadeOutUp');
-        prevDirectionY = direction;
-    }
-    else if (direction === 1) {
-        header.classList.remove('animate__fadeOutUp');
-        header.classList.add('animate__fadeInDown');
-        prevDirectionY = direction;
-    }
-};
+        var toggleHeader = function (direction, curScroll) {
+            if (direction === 2 && curScroll > 52) {
+                header.classList.add('animate__fadeOutUp');
+                prevDirectionY = direction;
+            }
+            else if (direction === 1) {
+                header.classList.remove('animate__fadeOutUp');
+                header.classList.add('animate__fadeInDown');
+                prevDirectionY = direction;
+            }
+        };
 
-win.addEventListener('scroll', checkScrollY);
+        win.addEventListener('scroll', checkScrollY);
 
-})();
+    })();
 </script>
+
 </html>
