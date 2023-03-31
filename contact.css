@@ -167,12 +167,12 @@ label {
   }
 
   #form-container #container {
-    margin-top: 10%;
+    margin-top: 8%;
     background: rgba(255,255,255,0.3);
     padding-left: 1.5em;
     padding-right: 3em;
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 0.7em;
     border-radius: 20px;
     border-left: 1px solid rgba(176, 175, 175, 0.3);
     border-top: 1px solid rgba(168, 168, 168, 0.3);
@@ -212,3 +212,72 @@ input {
 textarea {
     height:24px
 }
+
+#socialContainer {
+    width:100%;
+    text-align: left;
+    margin-top: 10px;
+    margin-top: -50px;
+}
+
+#socialContainer ul .social li {
+    font-family: fantasy;
+    list-style:none;
+    font-weight:100;
+    font-size: small;
+    color:white;
+    padding: 10px;
+    overflow: hidden;
+    cursor:default;
+    user-select: none;
+    transition: all ease 0.5s;
+}
+
+.social a {
+    text-decoration: none;
+    color:black;
+}
+
+.social a:hover + li {
+    overflow: hidden;
+    color:black !important; 
+    white-space: nowrap;
+    animation: 
+    typing 1s steps(90, end),
+    blink-caret .75s step-end infinite;
+}
+#socialContainer .social {
+    display: flex;
+    align-items: center;
+    width:28%;
+}
+i {
+    margin-right: 5px;
+}
+
+.fa-twitter:before {
+    margin-right: -2px;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
