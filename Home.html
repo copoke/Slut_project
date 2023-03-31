@@ -2,25 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Meta Shoes</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="Home.css"/>
+    <link rel="stylesheet" type="text/css" href="engine0/style.css"/>
+    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css"/>
+    <link rel="stylesheet" href="node_modules/wow.js/css/libs/animate.css"/>
+    <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png"/>
+    
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="Home.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css">
-    <link rel="stylesheet" href="node_modules/wow.js/css/libs/animate.css">
-    <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png">
     <script src="Home.js"></script>
     <script src="node_modules/wow.js/dist/wow.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/38c1368b3d.js" crossorigin="anonymous"></script>
-    <title>Meta Shoes</title>
-    <link rel="stylesheet" type="text/css" href="engine0/style.css" />
 </head>
 
 <body>
@@ -32,7 +35,7 @@
                 <div class="bar"></div>
             </div>
             <a href="Home.html"><img class="logo-img"
-                src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
+                    src="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" alt="Logo"></a>
             <div class="nav-container">
                 <nav>
                     <ul class="nav-links">
@@ -187,14 +190,16 @@
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </a>
-                    <a class="carousel-control-next" href="#recipeCarousel" role="button"
-                        data-bs-slide="next">
+                    <a class="carousel-control-next" href="#recipeCarousel" role="button" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </a>
                 </div>
             </div>
         </div>
         <div class="pop-up-container">
+            <div id="mapText">
+                <h1>Where you find us</h1>
+            </div>
             <div id="map"></div>
             <div class="blocker" onclick="hidemap(true)"></div>
         </div>
@@ -210,7 +215,7 @@
                     <a href="#" class="icon-container">
                         <i class="fa fa-instagram"></i>
                     </a>
-                    <div class="icon-container pointer hover-event"onclick="hidemap(false)">
+                    <div class="icon-container pointer hover-event" onclick="hidemap(false)">
                         <i class="fa-solid fa-map-location-dot fa-sm"></i>
                     </div>
                 </div>
@@ -221,100 +226,97 @@
         </footer>
     </div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-      defer
-    ></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer></script>
 </body>
+
 </html>
 <script>
 
-function hidemap(boolean) {
-    const container = $(".pop-up-container")
-    if (boolean == true){
-        container.css('display', 'none')
-    }
-    else {
-        container.css('display', 'block')
-    }
-}
-
-
-function initMap() {
-  const Nike = { lat: 59.44542228908818, lng: 18.071977 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
-    center: Nike,
-  });
-  const marker = new google.maps.Marker({
-    position: Nike,
-    map: map,
-  });
-  const marker2 = new google.maps.Marker({
-    position: {lat: 59.3745728554508, lng:18.080358794657688},
-    map: map
-  })
-}
-
-fetch(URL).then(data=> {
-  return data.json()
-}).then(jsonData => {
- console.log(jsonData.results)
-}).catch(error=> {
-  console.log(error);
-}) 
-
-window.initMap = initMap;
-
-
-    window.addEventListener("scroll", (event) => {
-    let scroll = this.scrollY;
-        $(".shoe-selection").css('background-position-y', Math.round(-scroll/1.5),'px')
-        console.log(Math.round(-scroll/1))
-        if(scroll == 0){
-            $("#bottom-text").css('opacity', 1)
-            $("#middle-title").css('opacity', 1)
-            $("#below-text").css('opacity', 1)
+    function hidemap(boolean) {
+        const container = $(".pop-up-container")
+        if (boolean == true) {
+            container.css('display', 'none')
         }
-        if (scroll < 300){
-            $("#shop-container").css('margin-top', -scroll/1.2 + 50, 'px')
+        else {
+            container.css('display', 'block')
+        }
+    }
+
+
+    function initMap() {
+        const Nike = { lat: 59.396543897446335, lng: 18.045602784542144 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 13,
+            center: Nike,
+        });
+        const nikeWindow = new google.maps.InfoWindow();
+        const nikeCoordinates = [
+            [{ lat: 59.45136832656315, lng: 18.070814836420613 }, "Westfield Täby Centrum"],
+            [{ lat: 59.42495781236318, lng: 17.861051665347464 }, "Nike Konstverk"],
+            [{ lat: 59.37919856879407, lng: 18.002891523882642 }, "Mall of Scandinavia"],
+            [{ lat: 59.29871609534867, lng: 17.935967083587876 }, "Nike Store Gallerian"],
+            [{ lat: 59.321148096578064, lng: 18.092790025771137 }, "Hypestein"],
+        ]
+        nikeCoordinates.forEach(([position, title], i) => {
+            const marker = new google.maps.Marker({
+                position,
+                map,
+                title: `${i + 1}. ${title}`,
+                label: `${i + 1}`,
+                optimized: false,
+            });
+        });
+    }
+    window.initMap = initMap;
+
+
+    window.addEventListener("scroll", () => {
+        const scroll = window.scrollY;
+
+        $(".shoe-selection").css("background-position-y", `${Math.round(-scroll / 1.5)}px`);
+
+        if (scroll === 0) {
+            $("#bottom-text, #middle-title, #below-text").css("opacity", 1);
+        }
+
+        if (scroll < 300) {
+            $("#shop-container").css("margin-top", `${-scroll / 1.2 + 50}px`);
         }
     });
 
-    let items = document.querySelectorAll('.carousel .carousel-item')
-    items.forEach((el) => {
-        const minPerSlide = 4
-        let next = el.nextElementSibling
-        for (var i=1; i<minPerSlide; i++) {
-            if (!next) {
-        next = items[0]
-    }
-    let cloneChild = next.cloneNode(true)
-    el.appendChild(cloneChild.children[0])
-    next = next.nextElementSibling
-    }
+    const carouselItems = Array.from(document.querySelectorAll('.carousel .carousel-item'))
 
+    carouselItems.forEach((item) => {
+        const itemsPerSlide = 4
+        let nextItem = item.nextElementSibling
+
+        for (let i = 1; i < itemsPerSlide; i++) {
+            if (!nextItem) {
+                nextItem = carouselItems[0]
+            }
+            const clonedItem = nextItem.cloneNode(true);
+            item.appendChild(clonedItem.children[0])
+            nextItem = nextItem.nextElementSibling
+        }
     })
     new WOW().init();
     (function () {
-
         var doc = document.documentElement;
         var win = window;
+        var header = document.getElementById('site-header');
+        var links = document.getElementsByClassName('link');
 
         var prevScrollY = win.scrollY || doc.scrollTop;
         var curScrollY;
+
         var directionY = 0;
         var prevDirectionY = 0;
-
-        var header = document.getElementById('site-header');
-        var links = document.getElementsByClassName('link');
-        console.log(links)
-
-        var checkScrollY = function () {
+        function checkScrollY() {
             curScrollY = win.scrollY || doc.scrollTop;
             if (curScrollY > prevScrollY) {
                 directionY = 2;
-            }
-            else if (curScrollY < prevScrollY) {
+            } else if (curScrollY < prevScrollY) {
                 directionY = 1;
             }
 
@@ -323,23 +325,26 @@ window.initMap = initMap;
             }
 
             prevScrollY = curScrollY;
-        };
+        }
 
-        var toggleHeader = function (direction, curScroll) {
+        function toggleHeader(direction, curScroll) {
             if (direction === 2 && curScroll > 52) {
                 header.classList.add('animate__fadeOutUp');
                 prevDirectionY = direction;
                 setTimeout(() => {
-                    $('.link').css('pointer-events', 'none')
+                    for (var i = 0; i < links.length; i++) {
+                        links[i].style.pointerEvents = 'none';
+                    }
                 }, 500);
-            }
-            else if (direction === 1) {
+            } else if (direction === 1) {
                 header.classList.remove('animate__fadeOutUp');
                 header.classList.add('animate__fadeInDown');
                 prevDirectionY = direction;
-                $('.link').css('pointer-events', 'auto')
+                for (var i = 0; i < links.length; i++) {
+                    links[i].style.pointerEvents = 'auto';
+                }
             }
-        };
+        }
 
         win.addEventListener('scroll', checkScrollY);
 
@@ -349,7 +354,7 @@ window.initMap = initMap;
     var slideshow = slideshowContainer.querySelector('.slideshow');
     var slides = document.querySelectorAll('.slide');
     var currentSlide = 0;
-''
+    ''
     function showNextSlide() {
         currentSlide++;
         if (currentSlide > 2) {

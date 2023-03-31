@@ -350,6 +350,8 @@ footer {
     top:20%;
     z-index: 2;
     border: 5px solid black;
+    border-top: 50px solid black;
+    border-radius: 10px;
     box-shadow: 5px 5px 20px black;
   }
   
@@ -368,6 +370,19 @@ footer {
 
 #map-button:hover {
     opacity: 1;
+}
+
+#mapText {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left:50%;
+    top:25%;
+    z-index: 50;
+    color:white;
+}
+
+#mapText h1 {
+    font-size: 30px
 }
 
 .footer-container {
