@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+header {
+    position: fixed;
+    top:-22px;
+    color: #fff;
+    background-color: white;
+    width:100%;
+    transition: all ease-in-out 1s;
+    opacity: 1;
+    margin-top: 20px;
+}
+.nav-container {
+    display: flex;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+#site-header > div.nav-container > nav {
+    margin-left: 0;
+}
+
+#site-header > div.nav-container > nav {
+    padding: 0;
+}
+
+#site-header > div.nav-container > div {
+    margin-top: -1.5%;
+}
+
+.logo-img {
+    width: 50px;
+    margin-left: 10px;
+    position: absolute;
+    top:10px
+}
+
+nav {
+    display: flex;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 5px;
+    border-bottom: #22222200 solid;
+    padding:5px;
+    color:#2b2b2b;
+    transition: color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border-end-start-radius 0.8s ease-in-out, border-bottom 0.5s ease-in-out;
+}
+
+.nav-links li {
+    margin:0px 3rem
+}
+
+.nav-links a:hover {
+    border-bottom: #2e2e2e solid;
+    color: #000000;
+}
+
+#loginContainer {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right:0px;
+    margin-right: 10px;
+    width:200px;
+    margin-bottom: 4px;
+}
+
+#login {
+    border-radius: 30px;
+    background-color: black;
+    padding: 8px;
+    font-size: 18px;
+    align-items: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.log-in {
+    color:black;
+    padding:8px 15px;
+    font-size: 18px;
+    margin-right: 10px;
+    border-radius: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+
+#loginContainer > a {
+    text-decoration: none;
+    color:white;
+}

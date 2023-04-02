@@ -28,6 +28,9 @@ header {
     margin-top: 20px;
     z-index: 1;
 }
+
+header a
+
 .nav-container {
     display: flex;
     text-align: center;
@@ -218,6 +221,7 @@ textarea {
     text-align: left;
     margin-top: 10px;
     margin-top: -50px;
+    margin-left: 23px;
 }
 
 #socialContainer ul .social li {
@@ -243,7 +247,7 @@ textarea {
     color:black !important; 
     white-space: nowrap;
     animation: 
-    typing 1s steps(90, end),
+    typing 2s steps(90, end),
     blink-caret .75s step-end infinite;
 }
 #socialContainer .social {
