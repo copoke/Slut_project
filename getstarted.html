@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="header.css"/>
+    <link rel="stylesheet" type="text/css" href="header.css" />
     <link rel="stylesheet" href="started.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/38c1368b3d.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" />
+    <title>Login</title>
 </head>
+
 <body>
     <div class="wrapper">
         <header id="site-header" class="animate__animated">
@@ -32,47 +35,108 @@
                 </nav>
                 <div id="loginContainer">
                     <div class="log-in">Log in</div>
-                    <a href="getstarted.html"><div id="login" class="link" >Get Started</div></a>
+                    <a href="getstarted.html">
+                        <div id="login" class="link">Get Started</div>
+                    </a>
                 </div>
             </div>
         </header>
-    <div id="login-wrapper">
-        <div id="left-panel"></div>
-        <div id="right-panel">
-            <div id="arrow" onclick="collapse()"><i class="fa-solid fa-arrow-right"></i></div>
-            <div id="signInContainer">
-                <h1>WELCOME</h1>
-                <h1 id="subheader">BACK</h1>
-                <div class="container" onclick="expand(login)">LOGIN</div>
-                <div class="container" onclick="expand()">SIGN IN</div>
+        <div id="login-wrapper">
+            <div id="leftPanel"></div>
+            <div id="rightPanel">
+                <div id="draggablePanel"></div>
+                <div id="arrow" onclick="collapse()"><i class="fa-solid fa-arrow-right"></i></div>
+                <div id="signInContainer">
+                    <h1>WELCOME</h1>
+                    <h1 id="subheader">BACK</h1>
+                    <div class="container" onclick="expand(login)">LOGIN</div>
+                    <div class="container" onclick="expand()">SIGN IN</div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
 </body>
+
 </html>
 <script>
-    const rightcontainer = document.getElementById("right-panel")
-    const leftcontainer = document.getElementById("left-panel")
-    const arrow = document.getElementById("arrow")
-    const subheader = document.getElementById("subheader")
+    const rightContainer = document.getElementById("rightPanel");
+    const leftContainer = document.getElementById("leftPanel");
+    const arrow = document.getElementById("arrow");
+    const subheader = document.getElementById("subheader");
+    const containers = document.getElementsByClassName("container")
+    const draggable = document.getElementById("draggablePanel")
+    let isPressed = false;
+    var isExpand = false;
+    var isDown = false;
+    var sliderValue = 0
+
     function expand(option) {
-        rightcontainer.style.width = "60%"
-        leftcontainer.style.width = "40%"
-        arrow.style.opacity = "1"
-        arrow.style.display = "flex"
-        arrow.style.cursor = "pointer"
-        if (option == login){
-            subheader.style.color = "black"
+        isExpand = true
+        draggable.style.display = "block"
+        rightContainer.style.width = "100%";
+        leftContainer.style.width = "0%";
+        arrow.style.opacity = "1";
+        arrow.style.display = "flex";
+        arrow.style.cursor = "pointer";
+
+        if (option === login) {
+            subheader.style.color = "black";
+            subheader.style.userSelect = "auto";
         }
     }
+
     function collapse() {
-        rightcontainer.style.width = "30%"
-        leftcontainer.style.width = "70%"
-        arrow.style.opacity = "0"
-        subheader.style.color = "transparent"
+        draggable.style.display = "none"
+        rightContainer.style.width = "30%";
+        leftContainer.style.width = "70%";
+        arrow.style.opacity = "0";
+        subheader.style.color = "transparent";
         setTimeout(() => {
-            arrow.style.display = "none"
+            arrow.style.display = "none";
         }, 500);
     }
+
+    const end = () => {
+        isDown = false;
+        console.log("end")
+        sliderValue = 0
+        
+    }
+
+    const start = (e) => {
+        isDown = true;
+        draggable.style.cursor = "grabbing";
+    }
+
+    const move = (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        sliderValue += 1
+        draggable.style.cursor = "grab"
+        if(sliderValue == 100){
+            collapse()
+        }
+        
+    }
+
+    draggable.addEventListener("mousedown", (e) => {
+        if (isExpand == true) {
+            isPressed = true;
+
+        }
+    });
+
+    (() => {
+        draggable.addEventListener('mousedown', start);
+        draggable.addEventListener('touchstart', start);
+
+        draggable.addEventListener('mousemove', move);
+        draggable.addEventListener('touchmove', move);
+
+        draggable.addEventListener('mouseleave', end);
+        draggable.addEventListener('mouseup', end);
+        draggable.addEventListener('touchend', end);
+    })();
+
+
 </script>
