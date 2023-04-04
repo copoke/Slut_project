@@ -3,6 +3,10 @@ body {
     background-color: black;
 }
 
+#subheader {
+    user-select: none;
+}
+
 #login-wrapper {
     position: absolute;
     z-index: 2;
@@ -58,7 +62,7 @@ body {
     display: flex;
     background-color: black;
     height: fit-content;
-    width:40%;
+    width:fit-content;  
     justify-content: center;
     padding: 20px;
     border-radius: 20px;
@@ -70,7 +74,6 @@ body {
 #login-wrapper #rightPanel #arrow {
     position: absolute;
     display: none;
-    display: flex;
     justify-content: center;
     align-items: center;
     left:0px;
@@ -86,20 +89,24 @@ body {
     font-size: 30px;
 }
 
-#login-wrapper #rightPanel #signInContainer :nth-child(1) {
-    margin-top: 10%;
-    color: black;
-}
 #login-wrapper #rightPanel #signInContainer :nth-child(2) {
     color:rgba(0, 0, 0, 0);
     user-select: none;
     transition: all ease 0.5s;
 }
 
-#login-wrapper #rightPanel #signInContainer :nth-child(3) {
-    margin-top: 6%;
+#login-wrapper #rightPanel #signInContainer :nth-child(4) {
+    margin-top: 40px;
 }
 
-#login-wrapper #rightPanel #signInContainer :nth-child(4) {
-    margin-top: 10%;
+#formContainer {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left:50%;
+    top:33%;
+    background-color: black;
+}
+
+input {
+    margin: 10px;
 }

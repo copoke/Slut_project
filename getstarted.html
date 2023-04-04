@@ -11,6 +11,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/38c1368b3d.js" crossorigin="anonymous"></script>
     <link rel="icon" href="https://i.ibb.co/DpbKhfx/ce0b3710812923-560eb7b8544e7-removebg-preview.png" />
+    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css"/>
     <title>Login</title>
 </head>
 
@@ -49,8 +50,24 @@
                 <div id="signInContainer">
                     <h1>WELCOME</h1>
                     <h1 id="subheader">BACK</h1>
-                    <div class="container" onclick="expand(login)">LOGIN</div>
-                    <div class="container" onclick="expand()">SIGN IN</div>
+                    <div class="container animate__animated" onclick="expand(login)" id="loginBelow">LOGIN</div>
+                    <div class="container animate__animated" onclick="expand()" id="signUp">SIGN UP</div>
+                <div id="formContainer">
+                    <form post="POST">
+                        <div class="formFlex">
+                            <input type="name" id="name" name="name" required placeholder="Username">
+                        </div>
+                        <div class="formFlex">
+                            <input type="email" id="email" name="email" required placeholder="Email">
+                        </div>
+                        <div class="formFlex">
+                            <input type="password" id="password" name="password" required placeholder="Password">
+                        </div>
+                        <div class="formFlex">
+                            <input type="password" id="confirmPassword" name="password" required placeholder="Password">
+                        </div>
+                    </form>
+                </div>
                 </div>
             </div>
         </div>
@@ -63,7 +80,8 @@
     const leftContainer = document.getElementById("leftPanel");
     const arrow = document.getElementById("arrow");
     const subheader = document.getElementById("subheader");
-    const containers = document.getElementsByClassName("container")
+    const loginBelow = document.getElementById("loginBelow")
+    const signUp = document.getElementById("signUp")
     const draggable = document.getElementById("draggablePanel")
     let isPressed = false;
     var isExpand = false;
@@ -78,11 +96,17 @@
         arrow.style.opacity = "1";
         arrow.style.display = "flex";
         arrow.style.cursor = "pointer";
-
+        loginBelow.classList.add('animate__fadeOutLeft');
+        signUp.classList.add('animate__fadeOutLeft');
+        loginBelow.removeAttribute("onclick")
         if (option === login) {
             subheader.style.color = "black";
             subheader.style.userSelect = "auto";
         }
+        setTimeout(() => {
+            loginBelow.style.display = "none";
+            signUp.style.display = "none";
+        }, 1000 );
     }
 
     function collapse() {
@@ -90,7 +114,16 @@
         rightContainer.style.width = "30%";
         leftContainer.style.width = "70%";
         arrow.style.opacity = "0";
+        subheader.style.userSelect = "none"
         subheader.style.color = "transparent";
+        loginBelow.classList.add('animate__fadeInLeft');
+        loginBelow.classList.remove('animate__fadeOutLeft');
+        signUp.classList.add('animate__fadeInLeft');
+        signUp.classList.remove('animate__fadeOutLeft');
+        loginBelow.style.display = "flex"
+        signUp.style.display = "flex"
+        loginBelow.setAttribute('onclick','expand(login)')
+        signUp.setAttribute('onclick', 'expand()')
         setTimeout(() => {
             arrow.style.display = "none";
         }, 500);
@@ -112,8 +145,9 @@
         if (!isDown) return;
         e.preventDefault();
         sliderValue += 1
+        console.log(sliderValue)
         draggable.style.cursor = "grab"
-        if(sliderValue == 100){
+        if(sliderValue == 10){
             collapse()
         }
         
@@ -138,5 +172,19 @@
         draggable.addEventListener('touchend', end);
     })();
 
+    var password = document.getElementById("password"),
+    confirmPassword = document.getElementById("confirmPassword")
+
+    function validatePassword(){
+        if(password.value != confirmPassword.value){
+            confirmPassword.setCustomValidity = ("Passwords don't match")
+        }
+        else{
+            confirmPassword.setCustomValidity = ("")
+        }
+    }
+
+    password.onchange = validatePassword
+    confirmPassword.onkeyup = validatePassword
 
 </script>
