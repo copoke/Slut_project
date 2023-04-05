@@ -107,18 +107,17 @@ input[type="name"],
 select,
 textarea {
   border: 1px solid #2e2e2e;
-  font-size: 16px;
   width: 100%;
   box-sizing: border-box;
 }
 
 input[type="text"], input[type="email"], input[type="password"], input[type="name"],textarea {
-  background-color: #fff;
   color:#000;
   border-bottom: 1px solid black;
   border-top: 1px solid rgba(0, 0, 0, 0);
   border-left:1px solid rgba(0, 0, 0, 0);
-  border-right:1px solid rgba(0, 0, 0, 0)
+  border-right:1px solid rgba(0, 0, 0, 0);
+  height:40px;
 }
 
 
@@ -133,4 +132,36 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
 
 input {
     margin: 10px;
+}
+
+.formFlex {
+    width:100%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.formFlex i {
+    position: absolute;
+    left:-40px;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+#form {
+    padding: 60px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(176, 175, 175, 0.3);
+    border-top: 1px solid rgba(168, 168, 168, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
 }

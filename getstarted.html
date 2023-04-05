@@ -54,19 +54,21 @@
                     <div class="container animate__animated" onclick="expand()" id="signUp">SIGN UP</div>
                 </div>
                 <div id="formContainer">
-                    <form post="POST">
+                    <form post="POST" id="form">
                         <div class="formFlex animate__animated" data-animation-delay="100ms">
-                            <input type="name" id="name" name="name" required placeholder="Username">
+                            <i class="fa-solid fa-user icon animate__animated animate__fadeInLeft animate__delay-1s"></i>
+                            <input type="name" id="name" name="name" required placeholder="Username" autocomplete="off" class="inputField" onfocus="focus()">
                         </div>
                         <div class="formFlex animate__animated" data-animation-delay="300ms">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input type="email" id="email" name="email" required placeholder="Email">
+                            <i class="fa-solid fa-envelope icon animate__animated animate__fadeInLeft animate__delay-1s"></i>
+                            <input type="email" id="email" name="email" required placeholder="Email" autocomplete="off" class="inputField" onfocus="focus(email)">
                         </div>
                         <div class="formFlex animate__animated" data-animation-delay="500ms">
-                            <input type="password" id="password" name="password" required placeholder="Password">
+                            <i class="fa-solid fa-lock icon animate__animated animate__fadeInLeft animate__delay-1s"></i>
+                            <input type="password" id="password" name="password" required placeholder="Password" autocomplete="off" class="inputField" onfocus="focus(password)">
                         </div>
                         <div class="formFlex animate__animated" data-animation-delay="700ms">
-                            <input type="password" id="confirmPassword" name="password" required placeholder="Verify password">
+                            <input type="password" id="confirmPassword" name="password" required placeholder="Verify password"autocomplete="off" class="inputField" onfocus="">
                         </div>
                     </form>
                 </div>
@@ -86,6 +88,7 @@
     const draggable = document.getElementById("draggablePanel")
     const formContainer = document.getElementById("formContainer")
     const formFlex = document.getElementsByClassName("formFlex")
+    const form = document.getElementById("form")
     let isPressed = false;
     var isExpand = false;
     var isDown = false;
@@ -115,7 +118,6 @@
             loginBelow.style.display = "none";
             signUp.style.display = "none";
             formContainer.style.display = "flex"
-
         }, 1000 );
     }
 
