@@ -37,6 +37,10 @@ body {
     transition: all ease 0.5s;
 }
 
+#login-wrapper #rightPanel #signUp {
+    margin-top: 40px;
+}
+
 #login-wrapper #draggablePanel {
     display: none;
     position: absolute;
@@ -92,19 +96,39 @@ body {
 #login-wrapper #rightPanel #signInContainer :nth-child(2) {
     color:rgba(0, 0, 0, 0);
     user-select: none;
+    margin-top: -20px;
     transition: all ease 0.5s;
 }
 
-#login-wrapper #rightPanel #signInContainer :nth-child(4) {
-    margin-top: 40px;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="name"],
+select,
+textarea {
+  border: 1px solid #2e2e2e;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+input[type="text"], input[type="email"], input[type="password"], input[type="name"],textarea {
+  background-color: #fff;
+  color:#000;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+  border-left:1px solid rgba(0, 0, 0, 0);
+  border-right:1px solid rgba(0, 0, 0, 0)
+}
+
 
 #formContainer {
     position: absolute;
+    display: none;
     transform: translate(-50%, -50%);
     left:50%;
     top:33%;
-    background-color: black;
+    transition: opacity 1s ease;
 }
 
 input {

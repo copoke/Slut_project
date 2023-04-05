@@ -126,7 +126,6 @@ label {
   }
 
   input[type="text"], input[type="email"], input[type="password"], textarea {
-    background-color: #fff;
     color:#000;
     border-bottom: 1px solid black;
     border-top: 1px solid rgba(0, 0, 0, 0);
@@ -134,33 +133,7 @@ label {
     border-right:1px solid rgba(0, 0, 0, 0)
   }
 
-  input[type="submit"] {
-    text-align: right;
-    background: black;
-    color:white;
-    border:1px #eee;
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px #eee;
-    padding: 6px 20px;
-    opacity: 0.8;
-    transition: opacity 0.15s ease-in-out;
-    cursor: pointer;
-  }
-
-  input[type="submit"]:hover {
-    opacity: 1;
-  }
   
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
   #form-container {
     position: absolute;
     transform: translate(-50%, -50%);

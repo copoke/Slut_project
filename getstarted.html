@@ -52,22 +52,23 @@
                     <h1 id="subheader">BACK</h1>
                     <div class="container animate__animated" onclick="expand(login)" id="loginBelow">LOGIN</div>
                     <div class="container animate__animated" onclick="expand()" id="signUp">SIGN UP</div>
+                </div>
                 <div id="formContainer">
                     <form post="POST">
-                        <div class="formFlex">
+                        <div class="formFlex animate__animated" data-animation-delay="100ms">
                             <input type="name" id="name" name="name" required placeholder="Username">
                         </div>
-                        <div class="formFlex">
+                        <div class="formFlex animate__animated" data-animation-delay="300ms">
+                            <i class="fa-solid fa-envelope"></i>
                             <input type="email" id="email" name="email" required placeholder="Email">
                         </div>
-                        <div class="formFlex">
+                        <div class="formFlex animate__animated" data-animation-delay="500ms">
                             <input type="password" id="password" name="password" required placeholder="Password">
                         </div>
-                        <div class="formFlex">
-                            <input type="password" id="confirmPassword" name="password" required placeholder="Password">
+                        <div class="formFlex animate__animated" data-animation-delay="700ms">
+                            <input type="password" id="confirmPassword" name="password" required placeholder="Verify password">
                         </div>
                     </form>
-                </div>
                 </div>
             </div>
         </div>
@@ -83,6 +84,8 @@
     const loginBelow = document.getElementById("loginBelow")
     const signUp = document.getElementById("signUp")
     const draggable = document.getElementById("draggablePanel")
+    const formContainer = document.getElementById("formContainer")
+    const formFlex = document.getElementsByClassName("formFlex")
     let isPressed = false;
     var isExpand = false;
     var isDown = false;
@@ -96,6 +99,7 @@
         arrow.style.opacity = "1";
         arrow.style.display = "flex";
         arrow.style.cursor = "pointer";
+        formContainer.style.display="flex"
         loginBelow.classList.add('animate__fadeOutLeft');
         signUp.classList.add('animate__fadeOutLeft');
         loginBelow.removeAttribute("onclick")
@@ -103,9 +107,15 @@
             subheader.style.color = "black";
             subheader.style.userSelect = "auto";
         }
+        for (var i = 0; i < formFlex.length; i++) {
+            formFlex[i].style.animationDelay = formFlex[i].dataset.animationDelay
+            formFlex[i].classList.add('animate__fadeInDown')
+        }
         setTimeout(() => {
             loginBelow.style.display = "none";
             signUp.style.display = "none";
+            formContainer.style.display = "flex"
+
         }, 1000 );
     }
 
@@ -122,11 +132,19 @@
         signUp.classList.remove('animate__fadeOutLeft');
         loginBelow.style.display = "flex"
         signUp.style.display = "flex"
+        formContainer.style.display = "none"
         loginBelow.setAttribute('onclick','expand(login)')
         signUp.setAttribute('onclick', 'expand()')
+
+        for (var i = 0; i < formFlex.length; i++) {
+            formFlex[i].classList.remove('animate__fadeInDown')
+        }
+
+
         setTimeout(() => {
             arrow.style.display = "none";
         }, 500);
+
     }
 
     const end = () => {
