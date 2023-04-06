@@ -50,8 +50,8 @@
                 <div id="signInContainer">
                     <h1>WELCOME</h1>
                     <h1 id="subheader">BACK</h1>
-                    <div class="container animate__animated" onclick="expand(login)" id="loginBelow">LOGIN</div>
-                    <div class="container animate__animated" onclick="expand()" id="signUp">SIGN UP</div>
+                    <div class="container animate__animated animate__faster" onclick="expand(login)" id="loginBelow">LOGIN</div>
+                    <div class="container animate__animated animate__faster" onclick="expand()" id="signUp">SIGN UP</div>
                 </div>
                 <div id="formContainer">
                     <form post="POST" id="form">
@@ -89,6 +89,7 @@
     const formContainer = document.getElementById("formContainer")
     const formFlex = document.getElementsByClassName("formFlex")
     const form = document.getElementById("form")
+    const ConfirPassword = document.getElementById("confirmPassword")
     let isPressed = false;
     var isExpand = false;
     var isDown = false;
@@ -109,6 +110,7 @@
         if (option === login) {
             subheader.style.color = "black";
             subheader.style.userSelect = "auto";
+            ConfirPassword.style.display = "none"
         }
         for (var i = 0; i < formFlex.length; i++) {
             formFlex[i].style.animationDelay = formFlex[i].dataset.animationDelay
@@ -137,7 +139,7 @@
         formContainer.style.display = "none"
         loginBelow.setAttribute('onclick','expand(login)')
         signUp.setAttribute('onclick', 'expand()')
-
+        ConfirPassword.style.display = "block"
         for (var i = 0; i < formFlex.length; i++) {
             formFlex[i].classList.remove('animate__fadeInDown')
         }
