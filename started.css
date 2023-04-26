@@ -42,13 +42,14 @@ body {
 }
 
 #login-wrapper #draggablePanel {
+    width:30%;
+    background-size: cover;
     display: none;
     position: absolute;
     box-sizing: border-box;
     left:0px;
     height:100vh;
-    width:30%;
-    cursor: auto;
+    cursor: grab;
 }
 
 #login-wrapper #rightPanel #signInContainer {
@@ -120,6 +121,35 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
   height:40px;
 }
 
+input[type="submit"] { 
+    background: rgb(22,22,22);
+    color: white;
+    font-size: 30px;
+    border-radius: 30px;
+    font-size: medium;
+    border:1.5px solid transparent;
+    padding: 6px 20px;
+    list-style-type: none;
+    text-decoration: none;
+    line-height: 24px;
+}
+
+#checkbox {
+    text-align: left;
+    align-items: center;
+    color: gray;
+    margin-left: -20px;
+    font-size: 5px;
+}
+
+#checkbox span {
+    font-size: 15px;
+    align-self: center;
+}
+
+input[type="checkbox"]{
+    margin-right: 7px;
+}
 
 #formContainer {
     position: absolute;
@@ -137,7 +167,7 @@ input {
 .formFlex {
     width:100%;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .formFlex i {
@@ -147,7 +177,7 @@ input {
 
 .inputField {
     width: 100%;
-    padding: 10px;
+    padding-right: 10px;
 }
 
 .icon {
@@ -157,8 +187,10 @@ input {
 }
 
 #form {
+    transform: scale(1.15);
     padding: 60px;
     padding-top: 10px;
+    padding-bottom: 20px;
     border-radius: 20px;
     border-left: 1px solid rgba(176, 175, 175, 0.3);
     border-top: 1px solid rgba(168, 168, 168, 0.3);

@@ -54,7 +54,7 @@
                     <div class="container animate__animated animate__faster" onclick="expand()" id="signUp">SIGN UP</div>
                 </div>
                 <div id="formContainer">
-                    <form post="POST" id="form">
+                    <form post="POST" id="form" action="#">
                         <div class="formFlex animate__animated" data-animation-delay="100ms">
                             <i class="fa-solid fa-user icon animate__animated animate__fadeInLeft animate__delay-1s"></i>
                             <input type="name" id="name" name="name" required placeholder="Username" autocomplete="off" class="inputField" onfocus="focus()">
@@ -67,9 +67,14 @@
                             <i class="fa-solid fa-lock icon animate__animated animate__fadeInLeft animate__delay-1s"></i>
                             <input type="password" id="password" name="password" required placeholder="Password" autocomplete="off" class="inputField" onfocus="focus(password)">
                         </div>
-                        <div class="formFlex animate__animated" data-animation-delay="700ms">
-                            <input type="password" id="confirmPassword" name="password" required placeholder="Verify password"autocomplete="off" class="inputField" onfocus="">
+                        <div class="formFlex animate__animated" data-animation-delay="700ms" id="confirmPassword">
+                            <i class="fa-solid fa-lock icon animate__animated animate__fadeInLeft animate__delay-1s" id="verifyLock"></i>
+                            <input type="password" name="password" id="passwordInput" required placeholder="Verify password"autocomplete="off" class="inputField" onfocus="">
                         </div>
+                        <div class="formFlex animate__animated" id="checkbox"data-animation-delay="700ms" id="confirmPassword">
+                            <input type="checkbox" name="terms" id="terms"><span>Remember me?</span>
+                        </div>
+                        <input type="submit" value="Send">
                     </form>
                 </div>
             </div>
@@ -90,6 +95,8 @@
     const formFlex = document.getElementsByClassName("formFlex")
     const form = document.getElementById("form")
     const ConfirPassword = document.getElementById("confirmPassword")
+    const verifyLock = document.getElementById("verifyLock")
+    const passwordInput = document.getElementById("passwordInput")
     let isPressed = false;
     var isExpand = false;
     var isDown = false;
@@ -111,19 +118,17 @@
             subheader.style.color = "black";
             subheader.style.userSelect = "auto";
             ConfirPassword.style.display = "none"
+            passwordInput.required = false
+        }else {
         }
         for (var i = 0; i < formFlex.length; i++) {
             formFlex[i].style.animationDelay = formFlex[i].dataset.animationDelay
             formFlex[i].classList.add('animate__fadeInDown')
         }
-        setTimeout(() => {
-            loginBelow.style.display = "none";
-            signUp.style.display = "none";
-            formContainer.style.display = "flex"
-        }, 1000 );
     }
 
     function collapse() {
+        passwordInput.required = true
         draggable.style.display = "none"
         rightContainer.style.width = "30%";
         leftContainer.style.width = "70%";
@@ -145,16 +150,13 @@
         }
 
 
-        setTimeout(() => {
-            arrow.style.display = "none";
-        }, 500);
-
     }
 
     const end = () => {
         isDown = false;
         console.log("end")
         sliderValue = 0
+        draggable.style.cursor = "grab"
         
     }
 
@@ -194,8 +196,8 @@
         draggable.addEventListener('touchend', end);
     })();
 
-    var password = document.getElementById("password"),
-    confirmPassword = document.getElementById("confirmPassword")
+    var password = document.getElementById("password")
+    var confirmPassword = document.getElementById("confirmPassword")
 
     function validatePassword(){
         if(password.value != confirmPassword.value){
