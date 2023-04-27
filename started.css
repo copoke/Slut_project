@@ -22,12 +22,14 @@ body {
     width:70%;
     background-image: url(https://www.crushpixel.com/big-static16/preview4/flipflops-seamless-pattern-cartoon-style-2338834.jpg);
     transition: all ease 0.5s;
+    box-sizing: border-box;
     background-position-y:-100px ;
 }
 
 #login-wrapper #rightPanel {
     position: absolute;
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
     align-items: center;
     top:0px;
@@ -74,6 +76,7 @@ body {
     font-size: 30px;
     color:white;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 #login-wrapper #rightPanel #arrow {
