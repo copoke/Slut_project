@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("rightPanel");
   const categoryContainer = document.getElementById("categoryContainer");
   const inputSearch = document.getElementById("fuzzy-search");
-  const categoryElements = document.querySelectorAll('.titleShoes');
+  const categoryElements = document.querySelectorAll(".titleShoes");
   const shoeArray = [
     {
       shoeName: "Nike Air Max Pulse",
@@ -188,26 +188,32 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(inputSearch.value.length);
       if (result.length > 0) {
         shoeCreator(result, "searched");
-      } else if ((inputSearch.value.length === 0)) {
+      } else if (inputSearch.value.length === 0) {
         shoeCreator(shoeArray, "empty");
       } else {
         container.innerHTML = "<h1>No items found</h1>";
-        container.style.justifyContent = "Center"
+        container.style.justifyContent = "Center";
       }
     }
   });
-  categoryElements.forEach(title => {
-    title.addEventListener('click', () => {
-        container.innerHTML = ""
-        const categoryOptions = {
-            includeScore: false,
-            threshold: 0.1,
-            keys: [{ name: "shoeName", weight: 3 }],
-          };
-        let category = new Fuse(shoeArray, categoryOptions)
-        let categoryResults = category.search(title.innerHTML)
-        console.log(categoryResults)
-        shoeCreator(categoryResults, "searched")
-    })
-  })
+  categoryElements.forEach((title) => {
+    title.addEventListener("click", (event) => {
+      container.innerHTML = "";
+      if (event.target.classList.contains("active")) {
+        title.classList.remove("active")
+        shoeCreator(shoeArray, "empty")
+      }else{
+      categoryElements.forEach((el) => el.classList.remove("active"));
+      title.classList.add("active");
+      const categoryOptions = {
+        includeScore: false,
+        threshold: 0.1,
+        keys: [{ name: "shoeName", weight: 3 }],
+      };
+      let category = new Fuse(shoeArray, categoryOptions);
+      let categoryResults = category.search(title.innerHTML);
+      shoeCreator(categoryResults, "searched");
+    }
+    });
+  });
 });

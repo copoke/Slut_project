@@ -41,7 +41,12 @@
     width: 100%;
     margin-left: 20px;
     cursor:pointer;
-    transition: all 0.5s;
+    transition: font-size 0.5s;
+}
+
+.active {
+    font-size: 23px;
+    font-weight: bold;
 }
 
 #panels #leftPanel #categoryContainer .titleShoes:hover {
