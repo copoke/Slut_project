@@ -6,7 +6,6 @@ const options = {
 
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("rightPanel");
-  const categoryContainer = document.getElementById("categoryContainer");
   const inputSearch = document.getElementById("fuzzy-search");
   const categoryElements = document.querySelectorAll(".titleShoes");
   const shoeArray = [
@@ -198,22 +197,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   categoryElements.forEach((title) => {
     title.addEventListener("click", (event) => {
-      container.innerHTML = "";
+      container.innerHTML = ""; // Resets rightPanels children
       if (event.target.classList.contains("active")) {
-        title.classList.remove("active")
-        shoeCreator(shoeArray, "empty")
-      }else{
-      categoryElements.forEach((el) => el.classList.remove("active"));
-      title.classList.add("active");
-      const categoryOptions = {
-        includeScore: false,
-        threshold: 0.1,
-        keys: [{ name: "shoeName", weight: 3 }],
-      };
-      let category = new Fuse(shoeArray, categoryOptions);
-      let categoryResults = category.search(title.innerHTML);
-      shoeCreator(categoryResults, "searched");
-    }
+        title.classList.remove("active");
+        shoeCreator(shoeArray, "empty"); // Resets search
+      } else {
+        categoryElements.forEach((el) => el.classList.remove("active"));
+        title.classList.add("active");
+        const categoryOptions = {
+          // Creates a new set of more accurate search
+          includeScore: false,
+          isCaseSensitive: true,
+          distance:500,
+          threshold: 0.1,
+          keys: ['shoeName', 'shoeGender', 'shoeColor']
+        };
+        let category = new Fuse(shoeArray, categoryOptions); // New fuse
+        let categoryResults = category.search(title.innerHTML); // Searches
+        shoeCreator(categoryResults, "searched"); // Inputs the result of the search function, an array into the function
+      }
     });
   });
 });
