@@ -137,12 +137,12 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
   const fuse = new Fuse(shoeArray, options);
-  function shoeCreator(result, type) {
-    for (let i = 0; i < result.length; i++) {
+  function shoeCreator(Array, type) {
+    for (let i = 0; i < Array.length; i++) {
       if (type == "searched") {
-        var shoe = result[i].item;
+        var shoe = Array[i].item;
       } else {
-        var shoe = result[i];
+        var shoe = Array[i];
       }
 
       const shoeContainer = document.createElement("div");
