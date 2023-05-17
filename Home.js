@@ -1,14 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-function hidemap(boolean) {
-    const container = $(".pop-up-container")
-    if (boolean == true) {
-        container.css('display', 'none')
-    }
-    else {
-        container.css('display', 'block')
-    }
-}
-
 
 function initMap() {
     const Nike = { lat: 59.396543897446335, lng: 18.045602784542144 };
@@ -34,7 +23,31 @@ function initMap() {
         });
     });
 }
-window.initMap = initMap;
+
+document.addEventListener("DOMContentLoaded", function () {
+
+const hideMap = document.getElementById("hideMap")
+const showMap = document.getElementById("showMap")
+hideMap.addEventListener("click", function(){
+    hidemap(true)
+})
+showMap.addEventListener("click", function(){
+    hidemap(false)
+})
+
+
+function hidemap(boolean) {
+    const container = $(".pop-up-container")
+    if (boolean == true) {
+        container.css('display', 'none')
+    }
+    else {
+        container.css('display', 'block')
+    }
+}
+
+
+// window.initMap = initMap;
 
 
 window.addEventListener("scroll", () => {
@@ -67,57 +80,6 @@ carouselItems.forEach((item) => {
     }
 })
 new WOW().init();
-
-(function () {
-    var doc = document.documentElement;
-    var win = window;
-    var header = document.getElementById('site-header');
-    var links = document.getElementsByClassName('link');
-
-    var prevScrollY = win.scrollY || doc.scrollTop;
-    var curScrollY;
-
-    var directionY = 0;
-    var prevDirectionY = 0;
-    function checkScrollY() {
-        curScrollY = win.scrollY || doc.scrollTop;
-        if (curScrollY > prevScrollY) {
-            directionY = 2;
-        } else if (curScrollY < prevScrollY) {
-            directionY = 1;
-        }
-
-        if (directionY !== prevDirectionY) {
-            toggleHeader(directionY, curScrollY);
-        }
-
-        prevScrollY = curScrollY;
-    }
-
-    function toggleHeader(direction, curScroll) {
-        if (direction === 2 && curScroll > 52) {
-            header.classList.add('animate__fadeOutUp');
-            prevDirectionY = direction;
-            setTimeout(() => {
-                for (var i = 0; i < links.length; i++) {
-                    links[i].style.pointerEvents = 'none';
-                }
-            }, 500);
-        } else if (direction === 1) {
-            header.classList.remove('animate__fadeOutUp');
-            header.classList.add('animate__fadeInDown');
-            prevDirectionY = direction;
-            for (var i = 0; i < links.length; i++) {
-                links[i].style.pointerEvents = 'auto';
-            }
-        }
-    }
-
-    win.addEventListener('scroll', checkScrollY);
-
-})();
-
-
 
 var slideshowContainer = document.querySelector('.slideshow-container');
 var slideshow = slideshowContainer.querySelector('.slideshow');

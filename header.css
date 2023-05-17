@@ -33,10 +33,6 @@ header {
     padding: 0;
 }
 
-#site-header > div.nav-container > div {
-    margin-top: -1.5%;
-}
-
 .logo-img {
     width: 50px;
     margin-left: 10px;
@@ -79,7 +75,7 @@ nav {
     right:0px;
     margin-right: 10px;
     width:200px;
-    margin-bottom: 4px;
+    margin-bottom: 27px;
 }
 
 #login {

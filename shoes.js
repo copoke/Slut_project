@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("rightPanel");
   const inputSearch = document.getElementById("fuzzy-search");
   const categoryElements = document.querySelectorAll(".titleShoes");
-  const shoeArray = [
+  const shoeArray = [ //Hittade ingen api för skor så gjorde en lista och låtsas som det är en GET Request
     {
       shoeName: "Nike Air Max Pulse",
       shoeType: "Air Max Pulse",
@@ -175,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
       shoePrice.classList.add("shoePrice");
       shoePrice.textContent = `${shoe.shoePrice}kr`;
       ul.appendChild(shoePrice);
+      shoeContainer.classList.add("fadeInDown")
 
       container.appendChild(shoeContainer);
     }
@@ -184,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.key === "Enter") {
       container.innerHTML = "";
       var result = fuse.search(inputSearch.value);
-      console.log(inputSearch.value.length);
       if (result.length > 0) {
         shoeCreator(result, "searched");
       } else if (inputSearch.value.length === 0) {

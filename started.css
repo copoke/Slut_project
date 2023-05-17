@@ -65,6 +65,11 @@ body {
     border-radius: 20px;
 }
 
+#login-wrapper #rightPanel #signInContainer h1 {
+    margin-top: 10px;
+}
+
+
 #login-wrapper #rightPanel #signInContainer .container {
     display: flex;
     background-color: black;
@@ -190,7 +195,6 @@ input {
 }
 
 #form {
-    transform: scale(1.15);
     padding: 60px;
     padding-top: 10px;
     padding-bottom: 20px;
